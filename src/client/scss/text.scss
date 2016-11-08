@@ -1,0 +1,12 @@
+@import './_variables/general.scss';
+
+@mixin primary-text-style {
+    color: $primary-font-color;
+    font-family: $primary-font;
+    font-size: $primary-font-size;
+}
+
+.primary-text {
+    @include primary-text-style;
+}
+
