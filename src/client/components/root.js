@@ -8,6 +8,7 @@ module.exports = function () {
       return (
         <div>
           <h1>Hashticle</h1>
+          <h2>{this.props.title}</h2>
         </div>
       );
     }
