@@ -3,14 +3,7 @@ import ReactDOM from 'react-dom';
 
 require('./scss/main.scss');
 
-class Root extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Hashticle</h1>
-      </div>
-    );
-  }
-}
+const container = require('./container');
+const root = container.get('root');
 
-ReactDOM.render(<Root />, document.getElementById('app'));
+ReactDOM.render(React.createElement(root), document.getElementById('app'));
