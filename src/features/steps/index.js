@@ -9,7 +9,7 @@ module.exports = function() {
   this.When('I navigate to the index page', function(callback) {
     const root = this.components.get('root');
     this.context.currentPage = ReactDOMServer.renderToString(
-      React.createElement(root, {title: 'this is the title'})
+      React.createElement(root, {title: 'Read news by tags'})
     );
     callback();
   });
