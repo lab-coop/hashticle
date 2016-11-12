@@ -3,12 +3,13 @@
 import React from 'react';
 const Header = require('./header');
 
-module.exports = function () {
+function Component(NewsList) {
   class Root extends React.Component {
     render() {
       return (
         <div>
           <Header name="Hashticle" title={this.props.title} />
+          <NewsList />
         </div>
       );
     }
@@ -16,3 +17,6 @@ module.exports = function () {
 
   return Root;
 }
+
+Component.deps = ['NewsList'];
+module.exports = Component;
