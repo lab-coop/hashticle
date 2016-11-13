@@ -1,12 +1,11 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 
 require('./scss/main.scss');
 
 const container = require('./container');
-const root = container.get('root');
+const App = container.get('App');
 
 ReactDOM.render(
-  React.createElement(root, {title: 'Read news by tags'}),
+  App,
   document.getElementById('app')
 );
