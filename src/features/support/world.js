@@ -8,6 +8,6 @@ module.exports = function() {
 
 function World() {
   this.context = {};
-  this.components = require('../../client/container');
+  this.container = require('../../client/container');
 }
 

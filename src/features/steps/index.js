@@ -7,7 +7,7 @@ const assert = require('chai').assert;
 module.exports = function() {
 
   this.When('I navigate to the index page', function(callback) {
-    const App = this.components.get('App');
+    const App = this.container.get('App');
     this.context.currentPage = ReactDOMServer.renderToString(App);
     callback();
   });
