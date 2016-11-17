@@ -3,18 +3,20 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server'
 const assert = require('chai').assert;
+import { mount, shallow } from 'enzyme';
 
 module.exports = function() {
 
   this.When('I navigate to the index page', function(callback) {
     const App = this.container.get('App');
-    this.context.currentPage = ReactDOMServer.renderToString(App);
+    this.context.currentPage = mount(App);
     callback();
   });
 
   this.Then('I see the "$text" text on the page', function(text, callback) {
+    const strings = this.context.currentPage.text();
     assert.include(
-      this.context.currentPage,
+      strings,
       text,
       `Could not find the text "${text}" on the page (${this.context.currentPage})`
     );
