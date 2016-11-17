@@ -7,7 +7,11 @@ module.exports = function () {
     render() {
       return (
         <div>
-          <span>News List</span>
+          <div>
+          {this.props.news.items.map(function(item) {
+            return <div className="news" key={item.id}>{item.title}</div>;
+          })}
+          </div>
         </div>
       );
     }
