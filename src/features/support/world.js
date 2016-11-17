@@ -2,6 +2,7 @@
 
 import React from 'react';
 const jsdom = require('jsdom').jsdom;
+const tools = require('./tools');
 
 module.exports = function() {
   this.World = World;
@@ -9,6 +10,7 @@ module.exports = function() {
 
 function World() {
   this.context = {};
+  this.tools = tools;
   this.container = require('../../client/container');
   setupDOM();
 }
