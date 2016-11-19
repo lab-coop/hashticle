@@ -10,3 +10,12 @@
     @include primary-text-style;
 }
 
+@mixin light-text-style {
+  color: $light-font-color;
+  font-family: $primary-font;
+  text-align: center;
+}
+
+.light-text {
+  @include light-text-style;
+}
