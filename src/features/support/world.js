@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import register from 'ignore-styles'
+register(['.scss'])
 const jsdom = require('jsdom').jsdom;
 const tools = require('./tools');
 
