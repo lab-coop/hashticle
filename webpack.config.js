@@ -12,6 +12,12 @@ const client = {
     filename: DIST_DIR + '/bundle.js',
     publicPath: PUBLIC_DIR
   },
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
   module: {
     loaders: [{
       test: /\.js?/,
@@ -20,9 +26,12 @@ const client = {
     },{
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract(
-        'style',
-        'css?sourceMap!sass?sourceMap'
-      )
+          'style',
+          'css?sourceMap!sass?sourceMap'
+          )
+    },{
+      test: /\.json$/,
+      loader: 'json-loader'
     }]
   },
   plugins: [
