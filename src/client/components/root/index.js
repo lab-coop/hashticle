@@ -14,7 +14,7 @@ function Component(NewsList, NewsActions) {
     render() {
       return (
         <div>
-          <Header name="Hashticle" title={this.props.title} />
+          <Header name="# ticle" title={this.props.title} />
           <NewsList news={this.props.news} />
         </div>
       );
