@@ -42,6 +42,7 @@
     "extract-text-webpack-plugin": "1.0.1",
     "ignore-styles": "^5.0.1",
     "jsdom": "9.8.3",
+    "json-loader": "^0.5.4",
     "node-sass": "3.11.2",
     "npm-watch": "0.1.6",
     "react-addons-test-utils": "15.3.2",
@@ -56,6 +57,7 @@
     "react": "15.3.2",
     "react-dom": "15.3.2",
     "react-redux": "4.4.5",
-    "redux": "3.6.0"
+    "redux": "3.6.0",
+    "request": "2.65.0"
   }
 }
