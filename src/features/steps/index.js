@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server'
 const assert = require('chai').assert;
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 module.exports = function() {
 
