@@ -10,6 +10,7 @@ const root = require('./components/root');
 const newsList = require('./components/news-list');
 
 const news = require('./services/news');
+const newsMemory = require('./services/news/implementations/memory');
 
 const newsActions = require('./actions/news');
 
@@ -19,6 +20,7 @@ di.registerModule(store, 'Store');
 di.registerModule(root, 'Root');
 di.registerModule(newsList, 'NewsList');
 di.registerModule(news, 'newsService');
+di.registerModule(newsMemory, 'newsService-memory');
 di.registerModule(newsActions, 'NewsActions');
 
 module.exports = di;
