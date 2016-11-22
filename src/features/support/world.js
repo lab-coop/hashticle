@@ -14,7 +14,12 @@ function World() {
   this.context = {};
   this.tools = tools;
   this.container = require('../../client/container');
+  setupConfig(this.container.get('config'));
   setupDOM();
+}
+
+function setupConfig(config) {
+  config.update('newsService','memory');
 }
 
 function setupDOM() {
