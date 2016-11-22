@@ -1,6 +1,7 @@
 'use strict';
 
 const di = require('lab-di')();
+const config = require('lab-config');
 
 const app = require('./app');
 const store = require('./store');
@@ -12,6 +13,7 @@ const news = require('./services/news');
 
 const newsActions = require('./actions/news');
 
+di.registerModule(config, 'config');
 di.registerModule(app, 'App');
 di.registerModule(store, 'Store');
 di.registerModule(root, 'Root');
