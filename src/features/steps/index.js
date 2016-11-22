@@ -10,6 +10,7 @@ module.exports = function() {
   this.When('I navigate to the index page', function(callback) {
     const App = this.container.get('App');
     this.context.currentPage = mount(App);
+    this.context.store = this.context.currentPage.node.store;
     callback();
   });
 

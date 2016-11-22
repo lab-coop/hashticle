@@ -12,10 +12,13 @@ module.exports = function () {
 
   this.Then('I see the "$count" news on the page', function (count, callback) {
     const currentPage = this.context.currentPage;
-    this.tools.waitForElement(currentPage, '.news', function(elements) {
-      expect(elements.length).to.eql(parseInt(count));
-      callback();
-    });
+    const store = this.context.store;
+    store.subscribe(
+      function() {
+        expect(currentPage.find('.news').length).to.eql(parseInt(count));
+        callback();
+      }
+    );
   });
 
 }
