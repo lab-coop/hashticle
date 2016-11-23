@@ -2,6 +2,7 @@
 
 const di = require('lab-di')();
 const config = require('lab-config');
+const configMemory = require('lab-config/implementations/memory');
 
 const app = require('./app');
 const store = require('./store');
@@ -15,6 +16,7 @@ const newsMemory = require('./services/news/implementations/memory');
 const newsActions = require('./actions/news');
 
 di.registerModule(config, 'config');
+di.registerModule(configMemory, 'lab-config-memory');
 di.registerModule(app, 'App');
 di.registerModule(store, 'Store');
 di.registerModule(root, 'Root');
