@@ -12,7 +12,6 @@
     "react"
   ],
   "rules": {
-    "indent": [2, 2, {"SwitchCase": 1}],
     "react/jsx-indent-props": 1,
     "no-console": 0,
     "react/jsx-indent": [2,2]
