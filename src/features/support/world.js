@@ -1,5 +1,3 @@
-'use strict';
-
 import register from 'ignore-styles'
 register(['.scss'])
 require("babel-polyfill")
@@ -18,4 +16,5 @@ function World() {
 
 function setupConfig(config) {
   config.update('newsService','memory');
+  config.update('authService','memory');
 }

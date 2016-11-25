@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "babel-polyfill": "6.16.0",
+    "firebase": "3.6.1",
     "lab-config": "github:lab-coop/lab-config",
     "lab-di": "github:lab-coop/lab-di",
     "lodash": "4.16.6",

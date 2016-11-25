@@ -18,6 +18,7 @@ const news = require('./services/news');
 const newsMemory = require('./services/news/implementations/memory');
 import auth from './services/auth';
 import authMemory from './services/auth/implementations/memory';
+import authExternal from './services/auth/implementations/external';
 
 const newsActions = require('./actions/news');
 
@@ -34,6 +35,7 @@ di.registerModule(news, 'newsService');
 di.registerModule(newsMemory, 'newsService-memory');
 di.registerModule(auth, 'authService');
 di.registerModule(authMemory, 'authService-memory');
+di.registerModule(authExternal, 'authService-external');
 di.registerModule(newsActions, 'NewsActions');
 
 module.exports = di;
