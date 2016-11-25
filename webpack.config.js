@@ -7,7 +7,7 @@ const PUBLIC_DIR = path.resolve(APP_DIR, 'public');
 const DIST_DIR = path.resolve(PUBLIC_DIR, 'dist');
 
 const client = {
-  entry: APP_DIR + '/index.js',
+  entry: ['babel-polyfill', APP_DIR + '/index.js'],
   output: {
     filename: DIST_DIR + '/bundle.js',
     publicPath: PUBLIC_DIR
