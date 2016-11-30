@@ -2,7 +2,7 @@
 
 
 function NewsService (container) {
-  const implementation = container.config.get('newsService');
+  const implementation = container.config.get('newsService') || 'external';
   return container.getImplementation('newsService', implementation);
 }
 
