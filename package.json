@@ -6,8 +6,8 @@
   "author": "",
   "scripts": {
     "test": "npm-watch",
-    "test:all": "./node_modules/cucumber/bin/cucumber.js ./src/features --compiler es6:babel-core/register",
     "test:unit": "jest --watch",
+    "test:all": "./node_modules/cucumber/bin/cucumber.js ./src/features --compiler es6:babel-core/register --require ./testSetup.js --require ./src/features",
     "start": "webpack --watch"
   },
   "jest": {
