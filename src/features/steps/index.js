@@ -17,7 +17,7 @@ module.exports = function() {
     await authService.login("user", "pass")
   })
 
-  this.When('I navigate to the index page', function(callback) {
+  this.When('I open the site', function(callback) {
     const App = this.container.get('App');
     this.context.currentPage = mount(App);
     this.context.store = this.context.currentPage.node.store;
