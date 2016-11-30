@@ -3,6 +3,7 @@
 import React from 'react';
 import register from 'ignore-styles'
 register(['.scss'])
+require("babel-polyfill")
 const jsdom = require('jsdom').jsdom;
 const tools = require('./tools');
 
