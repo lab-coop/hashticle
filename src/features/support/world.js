@@ -1,6 +1,5 @@
 'use strict';
 
-import React from 'react';
 import register from 'ignore-styles'
 register(['.scss'])
 require("babel-polyfill")
