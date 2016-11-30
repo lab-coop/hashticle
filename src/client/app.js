@@ -14,14 +14,23 @@ injectTapEventPlugin();
 
 const middleware = [ thunk ]
 
-function App(Root, StoreService) {
+function App(Root, StoreService, AuthService, LoginPage) {
   const store = createStore(StoreService, applyMiddleware(...middleware));
-
+  const requireAuth = (nextState, replace) => {
+    if (!AuthService.isLoggedIn()) {
+      replace({
+        pathname: '/login',
+        state: { nextPathname: nextState.location.pathname }
+      })
+    }
+  }
   return (
     <Provider store={store}>
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <Router history={createMemoryHistory()}>
-          <Route path="/" component={Root} >
+          <Route path="/login" component={LoginPage}>
+          </Route>
+          <Route path="/" component={Root} onEnter={requireAuth} >
           </Route>
         </Router>
       </MuiThemeProvider>
@@ -29,5 +38,5 @@ function App(Root, StoreService) {
   )
 }
 
-App.deps = ['Root', 'Store'];
+App.deps = ['Root', 'Store', 'authService', 'LoginPage'];
 module.exports = App;
