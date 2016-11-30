@@ -8,6 +8,7 @@ Feature: Index page
     | Title | Content  | Date                 |
     | Item1 | Content1 | 2016-05-02T12:34:00Z |
     | Item2 | Content2 | 2016-05-02T09:54:00Z |
+  Given I'm logged in
 
   Scenario: I check the index page
   When I navigate to the index page

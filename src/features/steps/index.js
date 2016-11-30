@@ -6,6 +6,16 @@ const assert = require('chai').assert;
 import { mount } from 'enzyme';
 
 module.exports = function() {
+  this.Given("I'm logged out", function() {
+    const authService = this.container.get('authService');
+    authService.logout()
+  })
+
+  this.Given("I'm logged in", async function() {
+    const authService = this.container.get('authService');
+    await authService.addUser("user", "pass")
+    await authService.login("user", "pass")
+  })
 
   this.When('I navigate to the index page', function(callback) {
     const App = this.container.get('App');
