@@ -7,6 +7,10 @@ const configMemory = require('lab-config/implementations/memory');
 const app = require('./app');
 const store = require('./store');
 
+import login from './components/login';
+import loginPage from './layouts/login';
+import loginController from './controllers/login';
+
 const root = require('./components/root');
 const newsList = require('./components/news-list');
 
@@ -22,6 +26,9 @@ di.registerModule(configMemory, 'lab-config-memory');
 di.registerModule(app, 'App');
 di.registerModule(store, 'Store');
 di.registerModule(root, 'Root');
+di.registerModule(login, 'Login');
+di.registerModule(loginPage, 'LoginPage');
+di.registerModule(loginController, 'LoginController');
 di.registerModule(newsList, 'NewsList');
 di.registerModule(news, 'newsService');
 di.registerModule(newsMemory, 'newsService-memory');
