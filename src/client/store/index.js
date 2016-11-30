@@ -1,5 +1,6 @@
 'use strict';
 import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
 
 function Reducers(container) {
   const NewsActions = container.get('NewsActions');
@@ -17,7 +18,8 @@ function Reducers(container) {
   }
 
   const rootReducer = combineReducers({
-    news
+    news,
+    form: formReducer
   });
 
   return rootReducer;
