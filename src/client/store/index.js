@@ -10,7 +10,8 @@ function Reducers(container) {
       case NewsActions.RECEIVE_NEWS:
         return {
           ...state,
-          items: action.news
+          items: action.news,
+          state: NewsActions.RECEIVE_NEWS
         }
       default:
         return state
