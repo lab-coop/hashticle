@@ -18,7 +18,8 @@ function NewsActions(NewsService) {
 
   const fetchNews = hashtags => dispatch => {
     return NewsService.getByHashtags(hashtags)
-      .then(news => dispatch(receiveNews(hashtags, news)));
+      .then(news => dispatch(receiveNews(hashtags, news)))
+      .catch(error => console.log(error));
   }
 
   const getNews = hashtags => dispatch => {
