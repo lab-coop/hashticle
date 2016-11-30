@@ -22,7 +22,7 @@ const client = {
     loaders: [{
       test: /\.js?/,
       include: APP_DIR,
-      loaders: ['eslint', 'babel']
+      loaders: ['babel', 'eslint']
     },{
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract(
