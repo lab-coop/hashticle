@@ -52,6 +52,7 @@
     "webpack": "1.13.3"
   },
   "dependencies": {
+    "babel-polyfill": "6.16.0",
     "lab-config": "github:lab-coop/lab-config",
     "lab-di": "github:lab-coop/lab-di",
     "lodash": "4.16.6",
