@@ -9,28 +9,29 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { syncHistoryWithStore, routerActions, routerMiddleware } from 'react-router-redux'
+import { UserAuthWrapper } from 'redux-auth-wrapper'
 
 injectTapEventPlugin();
 
-const middleware = [ thunk ]
-
-function App(Root, StoreService, AuthService, LoginPage) {
+function App(Root, StoreService, AuthService, LoginPage, AuthActions) {
+  const memoryHistory = createMemoryHistory()
+  const middleware = [ thunk, routerMiddleware(memoryHistory) ]
   const store = createStore(StoreService, applyMiddleware(...middleware));
-  const requireAuth = (nextState, replace) => {
-    if (!AuthService.isLoggedIn()) {
-      replace({
-        pathname: '/login',
-        state: { nextPathname: nextState.location.pathname }
-      })
-    }
-  }
+  const history = syncHistoryWithStore(memoryHistory, store)
+  const UserIsAuthenticated = UserAuthWrapper({
+    authSelector: state => state.user,
+    redirectAction: routerActions.replace,
+    wrapperDisplayName: 'UserIsAuthenticated'
+  });
+  AuthActions.init(store.dispatch);
   return (
     <Provider store={store}>
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <Router history={createMemoryHistory()}>
+        <Router history={history}>
           <Route path="/login" component={LoginPage}>
           </Route>
-          <Route path="/" component={Root} onEnter={requireAuth} >
+          <Route path="/" component={UserIsAuthenticated(Root)} >
           </Route>
         </Router>
       </MuiThemeProvider>
@@ -38,5 +39,5 @@ function App(Root, StoreService, AuthService, LoginPage) {
   )
 }
 
-App.deps = ['Root', 'Store', 'authService', 'LoginPage'];
+App.deps = ['Root', 'Store', 'authService', 'LoginPage', 'AuthActions'];
 module.exports = App;
