@@ -22,6 +22,8 @@ import auth from './services/auth';
 import authMemory from './services/auth/implementations/memory';
 import authExternal from './services/auth/implementations/external';
 
+import AuthActions from './actions/auth';
+
 const newsActions = require('./actions/news');
 
 di.registerModule(config, 'config');
@@ -39,6 +41,7 @@ di.registerModule(newsExternal, 'newsService-external');
 di.registerModule(auth, 'authService');
 di.registerModule(authMemory, 'authService-memory');
 di.registerModule(authExternal, 'authService-external');
+di.registerModule(AuthActions, 'AuthActions');
 di.registerModule(newsActions, 'NewsActions');
 
 module.exports = di;
