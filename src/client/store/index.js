@@ -1,9 +1,9 @@
-'use strict';
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 
 function Reducers(container) {
   const NewsActions = container.get('NewsActions');
+  const AuthActions = container.get('AuthActions');
 
   const news = (state = {items:[]}, action) => {
     switch (action.type) {
@@ -18,7 +18,17 @@ function Reducers(container) {
     }
   }
 
+  const user = (state = null, action) => {
+    switch (action.type) {
+      case AuthActions.USER_UPDATE:
+        return action.user
+      default:
+        return state
+    }
+  }
+
   const rootReducer = combineReducers({
+    user,
     news,
     form: formReducer
   });
