@@ -1,5 +1,3 @@
-'use strict';
-
 function NewsActions(NewsService) {
 
   const REQUEST_NEWS = 'REQUEST_NEWS';
