@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
+import { routerReducer } from 'react-router-redux'
 
 function Reducers(container) {
   const NewsActions = container.get('NewsActions');
@@ -28,6 +29,7 @@ function Reducers(container) {
   }
 
   const rootReducer = combineReducers({
+    routing: routerReducer,
     user,
     news,
     form: formReducer
