@@ -11,6 +11,7 @@ function World() {
   this.context = {};
   this.tools = tools;
   this.container = require('../../client/container');
+  this.server = require('../../server/container');
   setupConfig(this.container.get('config'));
 }
 
