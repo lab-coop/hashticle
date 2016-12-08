@@ -12,10 +12,15 @@ function World() {
   this.tools = tools;
   this.container = require('../../client/container');
   this.server = require('../../server/container');
+  extendContainer.call(this);
   setupConfig(this.container.get('config'));
 }
 
 function setupConfig(config) {
   config.update('newsService','memory');
   config.update('authService','memory');
+}
+
+function extendContainer() {
+  this.container.extend(this.server.default);
 }
