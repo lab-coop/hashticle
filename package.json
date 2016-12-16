@@ -10,7 +10,9 @@
     "test:unit": "jest",
     "test:unit-watch": "jest --watch",
     "test:feature": "./node_modules/cucumber/bin/cucumber.js ./src/features --compiler es6:babel-core/register --require ./src/features/support/testSetup.js --require ./src/features",
-    "start": "webpack --watch"
+    "start": "nodemon src/server/server.js --ignore dist --ignore node_modules --exec babel-node",
+    "build-web": "webpack",
+    "serve": "node dist/server.js"
   },
   "jest": {
     "testRegex": ".*\\.test\\.js$"
@@ -32,6 +34,7 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "6.18.0",
     "babel-core": "6.18.2",
     "babel-eslint": "7.1.0",
     "babel-jest": "17.0.2",
