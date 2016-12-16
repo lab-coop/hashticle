@@ -62,6 +62,8 @@
   },
   "dependencies": {
     "babel-polyfill": "6.16.0",
+    "body-parser": "1.15.2",
+    "express": "4.14.0",
     "firebase": "3.6.1",
     "lab-config": "github:lab-coop/lab-config",
     "lab-di": "github:lab-coop/lab-di",
