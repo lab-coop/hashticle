@@ -6,13 +6,14 @@
   "author": "",
   "scripts": {
     "test": "npm-watch",
+    "build": "babel ./src/server/ -d ./dist",
     "test:all": "npm run test:unit && npm run test:feature",
     "test:unit": "jest",
     "test:unit-watch": "jest --watch",
     "test:feature": "./node_modules/cucumber/bin/cucumber.js ./src/features --compiler es6:babel-core/register --require ./src/features/support/testSetup.js --require ./src/features",
-    "start": "nodemon src/server/server.js --ignore dist --ignore node_modules --exec babel-node",
+    "start": "PUBLIC_DIR='../client/public' nodemon src/server/server.js --ignore dist --ignore node_modules --exec babel-node",
     "build-web": "webpack",
-    "serve": "node dist/server.js"
+    "serve": "PUBLIC_DIR='./public' node dist/server.js"
   },
   "jest": {
     "testRegex": ".*\\.test\\.js$"
